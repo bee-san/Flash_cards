@@ -1,7 +1,7 @@
 # allows us to access a random 'key' in the dictionary
 import random
 from collections import Counter
-
+import time
 # the questions/answer dictionary
 my_dict_CS = Counter({
     "Base-2 number system": "binary",
@@ -18,7 +18,7 @@ my_dict_CS = Counter({
     "Name of the first ever computer?": "Colusus",
     "The brain of the computer is?": "CPU",
     "What is 1NF?": "first normal form is a data normalisation type, there are 3 rules to 1NF. It MUST have a primary key."
-                    " It MUST have unique data and Atomisd. It MUST not contain repeating data.",
+                    " It MUST have unique data and Atomisd. It MUST not contain repeating data\nand it has attribute headings.",
     "How should primary keys be generated?" : "Randomly",
     "Name 3 topologies in networking" : "Star, Bus and hybrid.",
     "What is hybrid?" : "when you take the best bits of 2 things and combinend them to make it better",
@@ -27,7 +27,16 @@ my_dict_CS = Counter({
     "What is an integer?" : "A whole number",
     "What is a float?" : "A decimal number",
     "What does PERT stand for?" : "Program Evalaution Review Technique",
-    "What ways do arrows go in PERT?" : "Arrows MUST go in the left and come out the right, ALWAYS"
+    "What ways do arrows go in PERT?" : "Arrows MUST go in the left and come out the right, ALWAYS",
+    "What's the best way to draw PERT charts on paper?" : "Lined paper, landscape, it's super quick.",
+    "What must you always label in a PERT diagram?" : "The diagram it self, PERT DIAGRAM, and it must have a key.",
+    "How do you calcualte slack time in a PERT diagram?" : "Earliest finish take away the top number",
+    "What was the first computer bug?" : "Anna Lovelace, real bug which short circuited a machine.",
+    "What is Pervasive computing?" : "Computers are everywhere. In plants, Washing machines, cars.",
+    "What is UNF?" : "Unnormalised data",
+    "Order of operations for Boolean Algebra?" : "The order of Boolean operations from high to low priority is NOT, "
+                                                 "AND, OR, while expressions inside brackets are always evaluated first."
+
 
 })
 
@@ -52,7 +61,7 @@ my_dict_ENGLISH = Counter({
 
 
 # welcome message
-print("Revision Quiz")
+print("\nRevision Quiz")
 print("=======================")
 
 # the quiz will end when this variable becomes 'False'
@@ -65,6 +74,8 @@ while playing:
     score = 0
 
     # gets the number of questions the player wants to answer
+    reccomended_num = random.randint(1, 100)
+    print("\nReccomended number is {}".format(reccomended_num))
     num = int(input("\nHow many questions would you like: "))
     topic = input(str("What are you studying? ENGLISH, MATH, COMPUTER SCIENCE. ")).upper()
 
@@ -78,6 +89,7 @@ while playing:
         dict_to_use = my_dict_CS
 
     # loop the correct number of times
+    time_start = time.time()
     for i in range(num):
 
         # the question is one of the dictionary keys, picked at random
@@ -111,6 +123,13 @@ while playing:
     percent = ((score) * 100 / (num))
     percent = int(percent)
     print("You got {}% right!".format(percent))
+    time_end = time.time()
+    time_finish = int((time_end - time_start))
+    print("It took {} seconds for you to complete this quiz!".format(time_finish))
+    should_be_total_time = (8 * num)
+    print("The normal time to complete this quiz is {} seconds!".format(should_be_total_time))
+    difference_in_time = int((should_be_total_time - time_finish))
+    print("This is the difference in your time vs the normal time {} seconds!".format(difference_in_time))
     if percent > 69:
         print("Well done! Share this with friends!")
 
