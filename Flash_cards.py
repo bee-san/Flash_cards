@@ -20,9 +20,14 @@ my_dict_CS = Counter({
     "What is 1NF?": "first normal form is a data normalisation type, there are 3 rules to 1NF. It MUST have a primary key."
                     " It MUST have unique data and Atomisd. It MUST not contain repeating data.",
     "How should primary keys be generated?" : "Randomly",
-	"Name 3 topologies in networking" : "Star, Bus and hybrid.",
-	"What is hybrid?" : "when you take the best bits of 2 things and combinend them to make it better",
-	"What does each column have in a database?" : "A keyword to represent information. like Side dish or Cash."
+    "Name 3 topologies in networking" : "Star, Bus and hybrid.",
+    "What is hybrid?" : "when you take the best bits of 2 things and combinend them to make it better",
+    "What does each column have in a database?" : "A keyword to represent information. like Side dish or Cash.",
+    "What is a string?" : "A seqeuence of charecters",
+    "What is an integer?" : "A whole number",
+    "What is a float?" : "A decimal number",
+    "What does PERT stand for?" : "Program Evalaution Review Technique",
+    "What ways do arrows go in PERT?" : "Arrows MUST go in the left and come out the right, ALWAYS"
 
 })
 
@@ -47,7 +52,7 @@ my_dict_ENGLISH = Counter({
 
 
 # welcome message
-print("Computing Revision Quiz")
+print("Revision Quiz")
 print("=======================")
 
 # the quiz will end when this variable becomes 'False'
@@ -58,7 +63,6 @@ while playing:
 
     # set the score to 0
     score = 0
-    counter = 0
 
     # gets the number of questions the player wants to answer
     num = int(input("\nHow many questions would you like: "))
@@ -75,7 +79,6 @@ while playing:
 
     # loop the correct number of times
     for i in range(num):
-        counter += 1
 
         # the question is one of the dictionary keys, picked at random
         question = (random.choice(list(dict_to_use.keys())))
@@ -104,14 +107,15 @@ while playing:
 
     # after the quiz, print their final score
     print("\nYour final score was " + str(score))
-    print("You got {} out of {}!".format(score, counter))
-    percent = ((score) * 100 / (counter))
+    print("You got {} out of {}!".format(score, num))
+    percent = ((score) * 100 / (num))
+    percent = int(percent)
     print("You got {}% right!".format(percent))
     if percent > 69:
         print("Well done! Share this with friends!")
 
     # store the user's input...
-    again = input("Enter any key to play again, or 'q' to quit.")
+    again = input("\nEnter any key to play again, or 'q' to quit.")
 
     # and quit if they types 'q'
     if again.lower() == 'q':
