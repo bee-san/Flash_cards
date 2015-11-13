@@ -1,8 +1,10 @@
+#!python3
 # allows us to access a random 'key' in the dictionary
 import random
 from collections import Counter
 import time
 # the questions/answer dictionary
+
 my_dict_CS = Counter({
     "Base-2 number system": "binary",
     "Number system that uses the characters 0-F": "hexidecimal",
@@ -35,7 +37,10 @@ my_dict_CS = Counter({
     "What is Pervasive computing?" : "Computers are everywhere. In plants, Washing machines, cars.",
     "What is UNF?" : "Unnormalised data",
     "Order of operations for Boolean Algebra?" : "The order of Boolean operations from high to low priority is NOT, "
-                                                 "AND, OR, while expressions inside brackets are always evaluated first."
+                                                 "AND, OR, while expressions inside brackets are always evaluated first.",
+    "Why does temporary internet files slow down a browser?" : "The browser takes time to index them",
+    "What is fragmentation?" : "Fragmentation is where a file is stored on multiple disks."
+
 
 
 })
@@ -54,7 +59,13 @@ my_dict_MATH = Counter({
 })
 
 my_dict_ENGLISH = Counter({
-    "What does AFOREST stand for?": "Alliteration, Facts, Opinions, Rhetorical, Emotive, Statistics, Three"
+    "What does AFOREST stand for?": "Alliteration, Facts, Opinions, Rhetorical, Emotive, Statistics, Three",
+    "What makes a good title?" : "A rhetorical question, something which hooks the reader. Anything from AFOREST",
+    "What are the 5 W's?" : "Who, What, When, Where and Why?",
+    "What are strong paragraph openers to build on the previous point?" : "Furthermore, Additionally, As if this isn't enough"
+
+
+
 
 
 })
@@ -74,7 +85,7 @@ while playing:
     score = 0
 
     # gets the number of questions the player wants to answer
-    reccomended_num = random.randint(1, 100)
+    reccomended_num = random.randint(1, 20)
     print("\nReccomended number is {}".format(reccomended_num))
     num = int(input("\nHow many questions would you like: "))
     topic = input(str("What are you studying? ENGLISH, MATH, COMPUTER SCIENCE. ")).upper()
@@ -126,11 +137,11 @@ while playing:
     time_end = time.time()
     time_finish = int((time_end - time_start))
     print("It took {} seconds for you to complete this quiz!".format(time_finish))
-    should_be_total_time = (8 * num)
+    should_be_total_time = (10 * num)
     print("The normal time to complete this quiz is {} seconds!".format(should_be_total_time))
     difference_in_time = int((should_be_total_time - time_finish))
     print("This is the difference in your time vs the normal time {} seconds!".format(difference_in_time))
-    if percent > 69:
+    if (percent > 69 and difference_in_time > 25):
         print("Well done! Share this with friends!")
 
     # store the user's input...
