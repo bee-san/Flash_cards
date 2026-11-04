@@ -1,5 +1,7 @@
 # Flash cards
 
+[![Discord](https://img.shields.io/discord/754001738184392704?logo=discord&label=Discord)](https://discord.skerritt.blog)
+
 # Notice
 ## This program is no longer being devoloped.
 ## I suggest usng Ankii (http://ankisrs.net/) as they implement spaced repitional based learning alot better than this
